@@ -53,12 +53,12 @@ def main(data: pd.DataFrame):
     # Create a stacked area chart using st.stacked_area_chart
 
     color_dict = {
-        "CCGT": "#9ABBCA",
+        "CCGT": "#e55027",
         "coal": "#000000",
-        "OCTG": "#9ABBCA",
+        "OCTG": "#e55027",
         "solar": "#FFD744",
         "onwind": "#1F82C0",
-        "ror": "#79A8CA",
+        "ror": "#388867",
         "oil": "#1D565C",
         "geothermal": "#d05094",
         "hydro": "#79A8CA",
