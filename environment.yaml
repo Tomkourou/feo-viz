@@ -1,0 +1,73 @@
+# SPDX-FileCopyrightText:  PyPSA-Earth and PyPSA-Eur Authors
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+name: streamlit-pypsa
+channels:
+  - conda-forge
+  - bioconda
+  - gurobi
+dependencies:
+  - python>=3.8
+  - pip
+  - mamba # esp for windows build
+  # - atlite>=0.2.4  # until https://github.com/PyPSA/atlite/issues/244 is not merged
+  - powerplantmatching>=0.5.6
+  - atlite
+    # Dependencies of the workflow itself
+  - xlrd
+  - openpyxl
+  - seaborn
+  - snakemake-minimal
+  - ruamel.yaml
+  - numpy
+  - pandas
+  - geopandas>=0.11.0
+  - fiona!=1.8.22
+  - xarray
+  - netcdf4
+  - networkx
+  - pydoe2
+  - shapely>=2
+  - pre-commit
+  - matplotlib<=3.5.2
+  - reverse-geocode
+  - country_converter
+  - streamlit
+  - plotly
+
+    # Keep in conda environment when calling ipython
+  - ipython
+    # Jupyter notebook requirement
+  - ipykernel
+  - jupyterlab
+
+    # GIS dependencies:
+  - cartopy
+  - descartes
+  - rasterio!=1.2.10
+  - rioxarray
+
+    # Plotting
+  - geoviews
+  - hvplot
+  - graphviz
+  - contextily
+  - graphviz
+  - ipopt
+    # PyPSA-Eur-Sec Dependencies
+  - geopy
+  - tqdm
+  - pytz
+  - country_converter
+  - tabulate==0.8.10
+  - openjdk
+
+    # Cloud download
+  # - googledrivedownloader  # Commented until https://github.com/ndrplz/google-drive-downloader/pull/28 is merged: PR installed using pip
+
+
+  - pip:
+      - git+https://github.com/FRESNA/vresutils@master # until new pip release > 0.3.1 (strictly)
+      - tsam>=1.1.0
+      - pypsa>=0.21.3
