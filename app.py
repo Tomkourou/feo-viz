@@ -78,7 +78,5 @@ def main(data: pd.DataFrame):
 
 
 if __name__ == "__main__":
-    data = pd.read_csv(
-        "https://storage.cloud.google.com/feo-streamlit-viz/ID/hourly_generation.csv"
-    )
+    data = pd.read_csv("hourly_generation.csv")
     main(data)
