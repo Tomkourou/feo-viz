@@ -3,22 +3,22 @@ import plotly.express as px
 import pypsa
 import streamlit as st
 
-n = pypsa.Network(
-    "https://storage.cloud.google.com/feo-streamlit-viz/ID/elec_s_398_ec_lcopt_1H.nc"
-)
 
-# Your dataframe
-df = n.generators_t.p.T.reset_index()
-# Create the dataframe
+def extract_generation(path):
+    n = pypsa.Network(path)
 
-df["Generator"] = df["Generator"].str.replace(r"^\d+\s+", "", regex=True)
+    df = n.generators_t.p.T.reset_index()
+    # Create the dataframe
 
-final_gen = df.groupby("Generator").sum()
+    df["Generator"] = df["Generator"].str.replace(r"^\d+\s+", "", regex=True)
 
-final_gen = final_gen.drop("load")
+    final_gen = df.groupby("Generator").sum()
 
-# Filter the dataframe to select the first 100 columns
-data = final_gen.T
+    final_gen = final_gen.drop("load")
+
+    # Filter the dataframe to select the first 100 columns
+    data = final_gen.T
+    return data
 
 
 def get_generation():
@@ -78,5 +78,7 @@ def main(data: pd.DataFrame):
 
 
 if __name__ == "__main__":
-    data = get_generation()
+    data = pd.read_csv(
+        "https://storage.cloud.google.com/feo-streamlit-viz/ID/hourly_generation.csv"
+    )
     main(data)
