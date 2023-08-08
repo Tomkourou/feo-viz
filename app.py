@@ -78,5 +78,5 @@ def main(data: pd.DataFrame):
 
 
 if __name__ == "__main__":
-    data = pd.read_csv("hourly_generation.csv")
+    data = pd.read_csv("hourly_generation.csv", index_col=0)
     main(data)
