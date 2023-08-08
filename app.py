@@ -2,10 +2,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import plotly.express as px
 import pypsa
-
 import streamlit as st
 
-n = pypsa.Network("elec_s_398_ec_lcopt_1H.nc")
+n = pypsa.Network(
+    "https://storage.cloud.google.com/feo-streamlit-viz/ID/elec_s_398_ec_lcopt_1H.nc"
+)
 
 # Your dataframe
 df = n.generators_t.p.T.reset_index()
