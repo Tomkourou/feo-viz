@@ -8,27 +8,9 @@ channels:
   - bioconda
   - gurobi
 dependencies:
-  - python>=3.8
-  - pip
-  - mamba # esp for windows build
-  - snakemake-minimal
-  - ruamel.yaml
   - numpy
   - pandas
   - pre-commit
   - streamlit
   - plotly
-
-    # Keep in conda environment when calling ipython
-  - ipython
-    # Jupyter notebook requirement
-  - ipykernel
-  - jupyterlab
-
-    # GIS dependencies:
-  - geoviews
-  - geopy
-
-  - pip:
-      - tsam>=1.1.0
-      - pypsa>=0.21.3
+  - pypsa
